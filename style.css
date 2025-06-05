@@ -1,0 +1,391 @@
+/* ------------------------------ /
+/ CSS Reset /
+/ ------------------------------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  font: inherit;
+  font-family: "Titillium Web", sans-serif;
+  transition-behavior: allow-discrete;
+}
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  max-width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+
+  line-height: 1.5;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a {
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  text-decoration-skip-ink: auto;
+}
+img,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  font-style: italic;
+}
+svg {
+  fill: currentColor;
+  vertical-align: middle;
+}
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    interpolate-size: allow-keywords;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ------------------------------ /
+/ Fonts /
+/ ------------------------------ */
+@font-face {
+  font-family: "Titillium Web";
+  src: url("./fonts/TitilliumWeb-Regular.woff2") format("woff2"),
+    url("./fonts/TitilliumWeb-Regular.woff") format("woff");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Titillium Web";
+  src: url("./fonts/TitilliumWeb-SemiBold.woff2") format("woff2"),
+    url("./fonts/TitilliumWeb-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-display: swap;
+}
+
+/* ------------------------------ /
+/ General Styling /
+/ ------------------------------ */
+:root {
+  /* Base Background Colors */
+  --bg-color: #24353f;
+  --ternary-color: #3a2a35;
+  --subtle-bg-color: #45475e;
+  --shadow-color: #1a2830;
+
+  /* Text Color */
+  --accent-color: #85b1cc;
+  --secondary-color: #f5f5f5;
+  --subtle-secondary-color: #d1d1d1;
+
+  /* Form Validity Indicators */
+  --error-red: #e74c3c;
+  --subtle-error-red: #f2a097;
+  --success-green: #2ecc71;
+  --subtle-success-green: #7ee2a8;
+  --warning-yellow: #f39c12;
+  --subtle-warning-yellow: #f8c572;
+  --subtle-accent-color: #a9c8db;
+
+  /* Transition Duration & Timing Function */
+  --trns: 0.3s ease-out;
+}
+
+body {
+  background-image: linear-gradient(
+    to bottom right in lch,
+    var(--bg-color),
+    var(--ternary-color)
+  );
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  padding: 20px;
+}
+h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  text-align: center;
+}
+
+/* ------------------------------ /
+/ Form Styling /
+/ ------------------------------ */
+form {
+  accent-color: var(--accent-color);
+  caret-color: var(--accent-color);
+
+  max-height: fit-content;
+
+  min-width: 60%;
+  background-color: transparent;
+  box-shadow: 0 5px 50px 5px var(--shadow-color);
+
+  padding: 20px;
+  margin-inline: auto;
+  border: 2px solid var(--subtle-secondary-color);
+  border-radius: 5px;
+  outline: 2px solid var(--subtle-secondary-color);
+  outline-offset: -10px;
+}
+form h1 {
+  margin-block-end: 50px;
+}
+.form-control {
+  margin-block-end: 40px;
+  position: relative;
+}
+
+/* Input */
+.form-control input {
+  min-width: 100%;
+  max-width: 100%;
+  height: 40px;
+
+  padding-inline: 14px 28px;
+  border: 2px solid var(--subtle-secondary-color);
+  outline: transparent;
+
+  color: var(--secondary-color);
+  background-color: var(--subtle-bg-color);
+  transition: border-color var(--trns), box-shadow var(--trns);
+}
+.form-control input:focus {
+  border-color: var(--warning-yellow);
+  box-shadow: 0 0 5px 2px var(--subtle-warning-yellow);
+}
+.form-control input:valid {
+  border-color: var(--success-green);
+  box-shadow: 0 0 5px 2px var(--subtle-success-green);
+}
+.form-control input:not(:placeholder-shown):invalid {
+  border-color: var(--error-red);
+  box-shadow: 0 0 5px 2px var(--subtle-error-red);
+}
+
+/* Input Icon */
+.form-control .icon {
+  display: grid;
+  padding-block-start: 1px;
+  place-items: center;
+
+  position: absolute;
+  inset: 0 5px 0 auto;
+  margin: auto;
+}
+.form-control .icon svg {
+  display: none;
+}
+.form-control input:valid ~ .icon :last-child {
+  display: block;
+  color: var(--success-green);
+}
+.form-control input:not(:placeholder-shown):invalid ~ .icon :first-child {
+  display: block;
+  color: var(--error-red);
+}
+
+/* Input Label */
+.form-control label {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 5px;
+
+  position: absolute;
+  inset: 0 auto 0 10px;
+
+  height: fit-content;
+  padding-inline: 5px 10px;
+  margin: auto;
+
+  font-size: 1rem;
+  color: var(--secondary-color);
+  background-color: var(--subtle-bg-color);
+
+  transition: inset cubic-bezier(0.68, -0.55, 0.27, 1.55) 0.4s,
+    font-weight cubic-bezier(0.68, -0.55, 0.27, 1.55) 0.4s,
+    color cubic-bezier(0.68, -0.55, 0.27, 1.55) 0.4s,
+    border-inline ease-out 0.3s;
+  transition-duration: 0.3s;
+}
+.form-control label svg {
+  width: 0.7lh;
+  aspect-ratio: 1;
+  transition: color var(--trns);
+}
+.form-control input:is(:not(:placeholder-shown), :focus) ~ label {
+  inset: -60px auto 0 15px;
+  font-weight: bold;
+  color: var(--subtle-secondary-color);
+
+  border-inline: 2px solid var(--warning-yellow);
+}
+.form-control input:valid ~ label {
+  border-inline: 2px solid var(--success-green);
+}
+.form-control input:not(:placeholder-shown):invalid ~ label {
+  border-inline: 2px solid var(--error-red);
+}
+/*  Label Icon */
+.form-control input:is(:not(:placeholder-shown), :focus) ~ label svg {
+  color: var(--warning-yellow);
+}
+.form-control input:valid ~ label svg {
+  color: var(--success-green);
+}
+.form-control input:not(:placeholder-shown):invalid ~ label svg {
+  color: var(--error-red);
+}
+
+/* Submit Button */
+input[type="submit"] {
+  display: block;
+  background-color: transparent;
+
+  padding: 5px 50px;
+  margin-inline: auto;
+  margin-block-end: 20px;
+  border: 2px solid var(--accent-color);
+  border-radius: 6px;
+  outline: transparent;
+
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--accent-color);
+
+  transition-property: color, background-color, border;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
+input[type="submit"]:is(:hover, :focus-visible) {
+  color: var(--secondary-color);
+  background-color: var(--accent-color);
+}
+input[type="submit"]:focus {
+  box-shadow: 0 0 5px 2px var(--subtle-accent-color);
+}
+
+/* (Sign in / Sign Up) Text */
+input[type="submit"] + p {
+  text-align: center;
+  color: var(--subtle-secondary-color);
+}
+input[type="submit"] + p a {
+  color: var(--secondary-color);
+  font-weight: 600;
+  text-decoration: underline;
+  transition: color var(--trns);
+}
+input[type="submit"] + p a:is(:hover, :focus-visible) {
+  color: var(--accent-color);
+}
+input[type="submit"] + p br {
+  display: none;
+}
+
+/* ------------------------------ /
+/ Homepage /
+/ ------------------------------ */
+nav {
+  position: fixed;
+  inset: 0 0 auto;
+  box-shadow: 0 5px 5px var(--shadow-color);
+}
+nav .wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 60%;
+  margin-inline: auto;
+  padding: 10px 20px;
+}
+nav .wrapper span {
+  color: var(--secondary-color);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+nav .wrapper a {
+  display: block;
+  background-color: transparent;
+
+  padding: 5px 25px;
+  border: 2px solid var(--warning-yellow);
+  border-radius: 6px;
+  outline: transparent;
+
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--warning-yellow);
+
+  transition-property: color, background-color, border;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
+nav .wrapper a:is(:hover, :focus-visible) {
+  color: var(--secondary-color);
+  background-color: var(--warning-yellow);
+}
+nav .wrapper a:focus {
+  box-shadow: 0 0 5px 2px var(--subtle-warning-yellow);
+}
+body.homepage {
+  justify-content: center;
+  align-items: center;
+}
+body.homepage main {
+  display: grid;
+  place-items: center;
+
+  min-width: 60%;
+  min-height: 50vh;
+  min-height: 50svh;
+  background-color: transparent;
+  box-shadow: 0 5px 50px 5px var(--shadow-color);
+
+  padding-inline: 20px;
+  margin-inline: auto;
+  border: 2px solid var(--subtle-secondary-color);
+  border-radius: 5px;
+  outline: 2px solid var(--subtle-secondary-color);
+  outline-offset: -10px;
+}
+
+/* ------------------------------ /
+/ Media Queries /
+/ ------------------------------ */
+@media screen and (width < 48rem) {
+  form {
+    min-width: 100%;
+  }
+  input[type="submit"] + p br {
+    display: block;
+  }
+  nav .wrapper {
+    width: 100%;
+  }
+  body.homepage main {
+    width: 100%;
+  }
+}

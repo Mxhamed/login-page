@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <meta name="author" content="Mohamed Tamer" />
+    <meta
+      name="description"
+      content="Practice login page project with clean UI design. Features a secure login form, responsive layout, and modern styling." />
+    <!-- CSS & JavaScript -->
+    <link rel="stylesheet" href="./style.css" />
+    <script defer src="./index.js"></script>
+  </head>
+  <body>
+    <form action="#" target="_blank" method="post" id="mainForm">
+      <h1>Smart Login System</h1>
+
+      <!-- Email -->
+      <div class="form-control">
+        <input required placeholder type="email" id="loginEmail" />
+
+        <label for="loginEmail">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 256 256">
+            <g fill="currentColor">
+              <path
+                d="M224 128a96 96 0 1 1-96-96a96 96 0 0 1 96 96"
+                opacity="0.2" />
+              <path
+                d="M128 24a104 104 0 0 0 0 208c21.51 0 44.1-6.48 60.43-17.33a8 8 0 0 0-8.86-13.33C166 210.38 146.21 216 128 216a88 88 0 1 1 88-88c0 26.45-10.88 32-20 32s-20-5.55-20-32V88a8 8 0 0 0-16 0v4.26a48 48 0 1 0 5.93 65.1c6 12 16.35 18.64 30.07 18.64c22.54 0 36-17.94 36-48A104.11 104.11 0 0 0 128 24m0 136a32 32 0 1 1 32-32a32 32 0 0 1-32 32" />
+            </g>
+          </svg>
+          Email
+        </label>
+
+        <div class="icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="25"
+            height="25"
+            viewBox="0 0 24 24">
+            <path
+              fill="currentColor"
+              d="M12 7c-.736 0-1.313.649-1.244 1.4l.494 4.15a.76.76 0 0 0 .75.7a.76.76 0 0 0 .75-.7l.494-4.15C13.314 7.65 12.736 7 12 7m0 10a1.25 1.25 0 1 0 0-2.5a1.25 1.25 0 0 0 0 2.5" />
+            <path
+              fill="currentColor"
+              d="M12 4.75a7.25 7.25 0 1 0 0 14.5a7.25 7.25 0 0 0 0-14.5M3.25 12a8.75 8.75 0 1 1 17.5 0a8.75 8.75 0 0 1-17.5 0" />
+          </svg>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="25"
+            height="25"
+            viewBox="0 0 24 24">
+            <path
+              fill="currentColor"
+              d="M17.69 7.776a1 1 0 0 1 .034 1.414l-7.39 7.76l-4.058-4.26a1 1 0 0 1 1.448-1.38l2.61 2.74l5.942-6.24a1 1 0 0 1 1.414-.034" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="form-control">
+        <input
+          id="loginPassword"
+          required
+          autocomplete
+          placeholder
+          type="password" />
+
+        <label for="loginPassword">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24">
+            <g fill="none">
+              <path
+                fill="currentColor"
+                fill-opacity="0.16"
+                d="M6.6 10h10.8c.88 0 1.6.72 1.6 1.6v7c0 1.32-1.08 2.4-2.4 2.4H7.4C6.08 21 5 19.92 5 18.6v-7c0-.88.72-1.6 1.6-1.6" />
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-miterlimit="10"
+                stroke-width="1.5"
+                d="M8 10V7c0-2.21 1.79-4 4-4s4 1.79 4 4v3m-4 5a1 1 0 1 0 0-2a1 1 0 0 0 0 2m0 0v3m-5.4-8h10.8c.88 0 1.6.72 1.6 1.6v7c0 1.32-1.08 2.4-2.4 2.4H7.4C6.08 21 5 19.92 5 18.6v-7c0-.88.72-1.6 1.6-1.6" />
+            </g>
+          </svg>
+          Password
+        </label>
+
+        <div class="icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="25"
+            height="25"
+            viewBox="0 0 24 24">
+            <path
+              fill="currentColor"
+              d="M12 7c-.736 0-1.313.649-1.244 1.4l.494 4.15a.76.76 0 0 0 .75.7a.76.76 0 0 0 .75-.7l.494-4.15C13.314 7.65 12.736 7 12 7m0 10a1.25 1.25 0 1 0 0-2.5a1.25 1.25 0 0 0 0 2.5" />
+            <path
+              fill="currentColor"
+              d="M12 4.75a7.25 7.25 0 1 0 0 14.5a7.25 7.25 0 0 0 0-14.5M3.25 12a8.75 8.75 0 1 1 17.5 0a8.75 8.75 0 0 1-17.5 0" />
+          </svg>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="25"
+            height="25"
+            viewBox="0 0 24 24">
+            <path
+              fill="currentColor"
+              d="M17.69 7.776a1 1 0 0 1 .034 1.414l-7.39 7.76l-4.058-4.26a1 1 0 0 1 1.448-1.38l2.61 2.74l5.942-6.24a1 1 0 0 1 1.414-.034" />
+          </svg>
+        </div>
+      </div>
+
+      <input type="submit" value="Submit" id="loginSubmitBtn" />
+
+      <p>
+        Don't have an Account yet? <br />
+        <a href="./register.html">Sign up</a>
+      </p>
+    </form>
+  </body>
+</html>
